@@ -1,0 +1,83 @@
+﻿<Window x:Class="LogAnalyzer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LogAnalyzer"
+        xmlns:vm="clr-namespace:LogAnalyzer.ViewModels"
+        xmlns:converters="clr-namespace:LogAnalyzer.Converters"
+        mc:Ignorable="d"
+        Title="LogAnalyzer" 
+        SizeToContent="Height"
+        Width="350"
+        MinHeight="370"
+        MinWidth="350"
+        Padding="0,10"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <converters:StringEmptyConverter x:Key="StringConverter" />
+        <converters:StringEmptyToDisabledConverter x:Key="StringDisabledConverter" />
+        <converters:ProgressVisibilityConverter x:Key="ProgressVisibilityConverter" />
+    </Window.Resources>
+    <Window.Icon>
+        <BitmapImage UriSource="pack://application:,,,/LogAnalyzer;component/Resources/LogAnalyzer.png" />
+    </Window.Icon>
+
+    <Window.DataContext>
+        <vm:MainWindowViewModel />
+    </Window.DataContext>
+
+    <Window.Background>
+        <SolidColorBrush Color="{StaticResource Gray}" />
+    </Window.Background>
+
+    <StackPanel HorizontalAlignment="Center" Margin="0,10" Width="250">
+
+        <Label>Выберите папку для анализа логов</Label>
+        <TextBlock Margin="5,5,0,5"
+                   Style="{StaticResource MainText}"
+                   Text="{Binding FolderPath, 
+                        StringFormat='Папка: {0}', 
+                        Converter={StaticResource StringConverter}, 
+                        ConverterParameter='Не выбрана'}" />
+        <Button 
+            Click="ChooseFolder_OnClick" 
+            Margin="0,10,0,0">
+                Выбрать папку
+        </Button>
+
+        <Label Margin="0,10">Игнорировать количество меньше</Label>
+        <TextBox
+                 PreviewTextInput="CountIgnoreTextBox_OnPreviewTextInput" 
+                 MaxLength="6" 
+                 Text="{Binding MinCount, Mode=TwoWay}"/>
+
+        <CheckBox IsChecked="{Binding IgnoreTimeout}" 
+                  Margin="0,15">
+            <TextBlock Style="{StaticResource MainText}">
+                Игнорировать ошибки таймаута
+            </TextBlock>
+        </CheckBox>
+
+        <Button 
+            Click="MakeReport_OnClick"
+            Margin="0,0,0,10"
+            IsEnabled="{Binding FolderPath, Converter={StaticResource StringDisabledConverter}}">
+                Сформировать отчёт
+        </Button>
+
+        <StackPanel x:Name="StatusBar" Margin="0,10" Background="Transparent" Visibility="Collapsed">
+            <ProgressBar Height="20" 
+                         Value="{Binding Progress}" 
+                         Visibility="{Binding Progress, Converter={StaticResource ProgressVisibilityConverter}}"/>
+            <TextBlock x:Name="ErrorsStatus" 
+                       Style="{StaticResource MainText}" 
+                       Margin="0,10, 0, 0"
+                       Text="{Binding Errors, StringFormat='Не удалось обработать: {0}'}" />
+            <TextBlock x:Name="SuccessStatus" 
+                       Style="{StaticResource MainText}" 
+                       Margin="0,10,0,0"
+                       Text="{Binding Successes, StringFormat='Обработано: {0}'}" />
+        </StackPanel>
+    </StackPanel>
+</Window>

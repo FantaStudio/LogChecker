@@ -59,7 +59,7 @@ if (Directory.Exists(directoryPath))
         }
     }
 
-    foreach (var item in exceptions.Where(x => x.Value.Count >= 10).GroupBy(x => x.Value.LogElement.GetApplicationName()))
+    foreach (var item in exceptions.Where(x => x.Value.Count >= 10).GroupBy(x => x.Value.LogElement.ApplicationName))
     {
         Console.WriteLine(item.Key);
         foreach (var log in item.OrderByDescending(x => x.Value.Count))

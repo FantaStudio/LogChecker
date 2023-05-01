@@ -18,23 +18,20 @@ namespace LogChecker
 
         public Properties Properties { get; set; }
 
-        public string GetApplicationName()
+        public string ApplicationName => Properties.MachineName switch
         {
-            return Properties.MachineName switch
-            {
-                "uc-dl-api-test" => "Lanit.UCFK.KAPI.Int",
-                "uc-pz-int" => "Lanit.UCFK.Integration.FZS",
-                "uc-dl-web-1" => "Lanit.UCFK.KDL",
-                "uc-pz-web-lk" => "Lanit.UCFK.Portal.FZS ЗЧ",
-                "uc-pz-web-pub" => "Lanit.UCFK.Portal.FZS ОЧ",
-                "uc-vrs-web-lk" => "Lanit.UCFK.Portal",
-                "uc-pz-app" => "Lanit.UCFK.Scheduler.FZS",
-                "uc-vrs-app-1" => "Lanit.UCFK.Scheduler App 1",
-                "uc-vrs-app-2" => "Lanit.UCFK.Scheduler App 2",
-                "uc-vrs-app-3" => "Lanit.UCFK.Scheduler App 3",
-                _ => Properties.MachineName,
-            };
-        }
+            "uc-dl-api-test" => "Lanit.UCFK.KAPI.Int",
+            "uc-pz-int" => "Lanit.UCFK.Integration.FZS",
+            "uc-dl-web-1" => "Lanit.UCFK.KDL",
+            "uc-pz-web-lk" => "Lanit.UCFK.Portal.FZS ЗЧ",
+            "uc-pz-web-pub" => "Lanit.UCFK.Portal.FZS ОЧ",
+            "uc-vrs-web-lk" => "Lanit.UCFK.Portal",
+            "uc-pz-app" => "Lanit.UCFK.Scheduler.FZS",
+            "uc-vrs-app-1" => "Lanit.UCFK.Scheduler App 1",
+            "uc-vrs-app-2" => "Lanit.UCFK.Scheduler App 2",
+            "uc-vrs-app-3" => "Lanit.UCFK.Scheduler App 3",
+            _ => Properties.MachineName,
+        };
     }
 
     public class Properties

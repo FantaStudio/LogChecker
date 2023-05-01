@@ -1,0 +1,36 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Colors.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <FontFamily x:Key="Roboto">pack://application:,,,/LogAnalyzer;component/Resources/Fonts/#Roboto Regular</FontFamily>
+
+    <system:Double x:Key="H1">24</system:Double>
+    <system:Double x:Key="H2">18</system:Double>
+    <system:Double x:Key="H3">16</system:Double>
+    <system:Double x:Key="H4">14</system:Double>
+    <system:Double x:Key="H5">12</system:Double>
+
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="{StaticResource Roboto}"/>
+        <Setter Property="FontSize" Value="{StaticResource H4}" />
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource TextPrimary}" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="MainText">
+        <Setter Property="FontFamily" Value="{StaticResource Roboto}"/>
+        <Setter Property="FontSize" Value="{StaticResource H4}" />
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <SolidColorBrush Color="{StaticResource TextPrimary}" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

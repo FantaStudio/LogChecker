@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogChecker", "LogChecker\LogChecker.csproj", "{356D8A90-E362-4E16-869B-F3AF5AB98C6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogChecker", "LogChecker\LogChecker.csproj", "{356D8A90-E362-4E16-869B-F3AF5AB98C6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogAnalyzer", "LogAnalyzer\LogAnalyzer.csproj", "{F38AE909-F536-4C44-9E1B-AA801059C518}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{356D8A90-E362-4E16-869B-F3AF5AB98C6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{356D8A90-E362-4E16-869B-F3AF5AB98C6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{356D8A90-E362-4E16-869B-F3AF5AB98C6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F38AE909-F536-4C44-9E1B-AA801059C518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F38AE909-F536-4C44-9E1B-AA801059C518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F38AE909-F536-4C44-9E1B-AA801059C518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F38AE909-F536-4C44-9E1B-AA801059C518}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
