@@ -78,7 +78,7 @@ namespace LogAnalyzer
 
             var exceptions = await AnalyzeLogFiles();
 
-            var reportDate = DateTime.Now.ToString("MM.dd.yyyy mm_hh_ss");
+            var reportDate = DateTime.Now.ToString("MM.dd.yyyy hh_mm_ss");
 
             CreateReportDocument($"{_reportDialog.SelectedPath}/logReport-{reportDate}.doc", exceptions);
             Model.Progress = 100;
